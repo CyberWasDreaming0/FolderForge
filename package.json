@@ -1,0 +1,121 @@
+{
+  "name": "folderforge",
+  "private": false,
+  "version": "1.0.0",
+  "description": "A beautiful desktop app for creating and managing reusable folder structures instantly.",
+  "author": "CyberWasDreaming",
+  "license": "MIT",
+  "homepage": "https://github.com/CyberWasDreaming0/folderforge",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CyberWasDreaming0/folderforge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CyberWasDreaming0/folderforge/issues"
+  },
+  "keywords": [
+    "folder-structure",
+    "templates",
+    "electron",
+    "productivity",
+    "desktop-app",
+    "open-source",
+    "file-manager",
+    "project-scaffolding"
+  ],
+  "main": "electron/main.cjs",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port=3000 --host=0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview",
+    "clean": "rm -rf dist",
+    "lint": "tsc --noEmit",
+    "electron:dev": "concurrently \"vite --port=3000\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron:build": "vite build && node build-installer.js",
+    "electron:dist": "vite build && node build-installer.js",
+    "start": "npx electron-forge start",
+    "package": "npx electron-forge package",
+    "make": "npx electron-forge make"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "archiver": "^7.0.1",
+    "electron-squirrel-startup": "^1.0.1",
+    "exceljs": "^4.4.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.11.1",
+    "@electron-forge/maker-deb": "^7.11.1",
+    "@electron-forge/maker-rpm": "^7.11.1",
+    "@electron-forge/maker-squirrel": "^7.11.1",
+    "@electron-forge/maker-zip": "^7.11.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.11.1",
+    "@electron-forge/plugin-fuses": "^7.11.1",
+    "@electron/fuses": "^1.8.0",
+    "@tailwindcss/vite": "^4.1.14",
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.1.2",
+    "electron": "^35.1.2",
+    "lucide-react": "^0.546.0",
+    "png-to-ico": "^3.0.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.1.14",
+    "tsx": "^4.21.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0",
+    "wait-on": "^8.0.3"
+  },
+  "build": {
+    "appId": "com.folderforge.app",
+    "productName": "FolderForge",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "electron/templates",
+        "to": "templates",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "build/icon.png",
+      "uninstallerIcon": "build/icon.png",
+      "installerHeaderIcon": "build/icon.png",
+      "artifactName": "FolderForge-Setup-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "FolderForge-Portable-${version}.${ext}"
+    }
+  }
+}

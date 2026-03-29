@@ -1,0 +1,23 @@
+node_modules/
+dist/
+dist-electron/
+dist-packager/
+dist-installer/
+out/
+coverage/
+
+# OS/IDE files
+.DS_Store
+.vscode/
+.kilo/
+tempp/
+
+# Logs and Env
+*.log
+.env*
+
+# Application binaries
+*.exe
+*.zip
+*.dmg
+*.nupkg
