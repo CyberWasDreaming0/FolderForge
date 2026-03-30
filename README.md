@@ -17,7 +17,7 @@
 </div>
 
 <div align="center">
-<img src="build/FolderForge.gif" alt="FolderForge Demo" width="100%" />
+<video src="build/FolderForge-demo.mp4" width="100%" autoplay loop muted playsinline></video>
 </div>
 
 
