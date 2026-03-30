@@ -16,6 +16,10 @@
 
 </div>
 
+<div align="center">
+<img src="build/FolderForge.gif" alt="FolderForge Demo" width="100%" />
+</div>
+
 
 
 ## ✨ Features
@@ -41,6 +45,8 @@
 1. Go to the [Releases](https://github.com/CyberWasDreaming0/folderforge/releases) page
 2. Download `FolderForge-Setup.exe`
 3. Run the installer and you're ready to go!
+
+
 
 ---
 
